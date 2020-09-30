@@ -1,0 +1,20 @@
+{
+  "name": "devOps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Warning: No tests created yet\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indeskyz/devOPS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/indeskyz/devOPS/issues"
+  },
+  "homepage": "https://github.com/indeskyz/devOPS#readme"
+}
