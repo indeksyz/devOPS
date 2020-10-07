@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Warning: No tests created yet\""
+    "test": "echo \"Warning: No tests created yet\"",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -16,5 +21,23 @@
   "bugs": {
     "url": "https://github.com/indeskyz/devOPS/issues"
   },
-  "homepage": "https://github.com/indeskyz/devOPS#readme"
+  "homepage": "https://github.com/indeskyz/devOPS#readme",
+  "dependencies": {
+    "gh-pages": "^2.0.1",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-scripts": "2.1.5",
+    "travis": "^0.1.1",
+    "yarn": "^1.13.0"
+  },
+  "eslintConfig":{
+    "extends":"react-app"
+  },
+  "browserslist":[
+   ">0.2%",
+   "not dead",
+   "not ie <=11",
+   "not op_mini all"
+  ]
+  
 }
