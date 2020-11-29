@@ -1,0 +1,44 @@
+######TO DO 
+#1) set templates
+#2) set varaibles
+#3) folders needed: /tasks, /vars, /templates
+
+#All this does is install things, no deep configurations and is more of a reference than anything
+
+-hosts: localhost
+ become: yes
+ tasks:
+   - name: Install Packages
+      apt: name={{item}}
+      with_items:
+         - openjdk-8-jdk
+         - docker.io
+         - postgresql postgresql-contrib
+
+
+   - name: Install Jenkins
+     apt_key: url:https://pkg.jenkins.io/debian-stable/jenkins.io.key state=present
+     become: yes
+
+   - name: Configure jenkins repo
+     apt_repositroy: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+     become: yes
+
+   - name: Update Jenkins/Ensure it is installed
+     apt: name=jenkins update_cache=yes
+
+   - name: Install jenkins server
+     apt: name=Jenkins state=present
+
+   - name: Start Jenkins
+     service: name=jenkins state=present
+
+   - name: Set postgresql service
+     service: name=postgres state=present
+
+   - name: Install sonarqube
+     get_url: url="https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.4.zip"
+              dest="/tmp/sonar_archive"
+   - name: Extract sonar archive
+     become: yes
+     unarchive: src="/tmp/sonar_archive dest="$home"
